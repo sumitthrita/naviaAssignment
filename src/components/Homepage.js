@@ -15,7 +15,8 @@ class Homepage extends Component {
             answered: false,
             optionCorrect: false,
             time: 0,
-            selected: ""
+            selected: "",
+            feedback: []
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -55,7 +56,12 @@ class Homepage extends Component {
     handleSubmit(){
         if(this.state.answered === true){
             if(this.state.optionCorrect === true) {
-                this.setState({correct: this.state.correct + 1});
+                this.setState({
+                    correct: this.state.correct + 1,
+                    feedback: [...this.state.feedback,"Right"]
+                });
+            } else {
+                this.setState({feedback: [...this.state.feedback, "Wrong"]});
             }
 
             if(this.state.questionNo ===3){
@@ -88,7 +94,8 @@ class Homepage extends Component {
                 answered: false,
                 optionCorrect: false,
                 questionNo: this.state.questionNo + 1,
-                time: 0
+                time: 0,
+                feedback: [...this.state.feedback,"Not Answered"]
             });
         } else {
             alert("You have chose an option, Please unselect that option before skipping.");
@@ -123,6 +130,32 @@ class Homepage extends Component {
                 <div className="finishBox" >
                     <h3 className="outputText"> You have successfully completed the quiz.</h3>
                     <h4 className="score" > Your Score is {this.state.correct} out of 4. </h4>
+                    <table className="table">
+                    <thead className="thead-light">
+                        <tr>
+                            <th>Question</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td>{this.state.feedback[0]} </td>
+                        </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td>{this.state.feedback[1]} </td>
+                        </tr>
+                        <tr>
+                            <td> 3 </td>
+                            <td>{this.state.feedback[2]} </td>
+                        </tr>
+                        <tr>
+                            <td> 4 </td>
+                            <td>{this.state.feedback[3]} </td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
             :
                 <div className="singleQuestionBox" >
