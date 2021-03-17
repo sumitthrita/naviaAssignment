@@ -21,7 +21,7 @@ const questions = [
         ]
     },
     {
-        question: "Who is the Cheif Minister of UttarPradesh?",
+        question: "Who is the Chief Minister of Uttar Pradesh?",
         answerOptions : [
             {
                 option:"Mr. Yogi Nath",
@@ -53,7 +53,7 @@ const questions = [
                 status: false
             },
             {
-                option:"Kotkata",
+                option:"Kolkata",
                 status: false
             },
             {
@@ -63,7 +63,7 @@ const questions = [
         ]
     },
     {
-        question: "What is the Capital of UttarPradesh?",
+        question: "What is the Capital of Uttar Pradesh?",
         answerOptions : [
             {
                 option:"Agra",

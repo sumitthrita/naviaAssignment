@@ -115,7 +115,8 @@ class Homepage extends Component {
             answered: false,
             optionCorrect: false,
             questionNo: this.state.questionNo + 1,
-            time: 0
+            time: 0,
+            feedback: [...this.state.feedback, "Timed Out"]
         });
     }
 
